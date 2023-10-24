@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Cadastro de Empresa</title>
+</head>
+
+<body>
+	<h1>Cadastro de Empresa</h1>
+	<form id="empresaForm">
+		Nome da Empresa: <input type="text" name="nomeEmpresa"><br><br>
+		CNPJ: <input type="text" name="cnpj"><br><br>
+		Saldo: <input type="text" name="saldo" id="saldoEmpresa" oninput="calcularTaxa()"><br><br>
+		<button type="button" onclick="cadastrarEmpresa()">Cadastrar Empresa</button>
+	</form>
+	<p id="valorPago"></p>
+
+	<script>
+		function calcularTaxa() {
+			const saldoEmpresaInput = document.getElementById('saldoEmpresa');
+			const valorPago = document.getElementById('valorPago');
+			const saldo = parseFloat(saldoEmpresaInput.value);
+			const taxa = saldo * 0.1;
+			const saldoTotal = saldo + taxa;
+			valorPago.textContent = `Valor a ser pago: R$ ${saldoTotal.toFixed(2)}`;
+		}
+
+		function cadastrarEmpresa() {
+			const nomeEmpresa = document.querySelector('input[name="nomeEmpresa"]').value;
+			const cnpj = document.querySelector('input[name="cnpj"]').value;
+			const saldo = parseFloat(document.querySelector('input[name="saldo"]').value);
+
+			localStorage.setItem('nomeEmpresa', nomeEmpresa);
+			localStorage.setItem('cnpj', cnpj);
+			localStorage.setItem('saldo', saldo);
+
+			window.location.href = 'checkout';
+		}
+	</script>
+</body>
+
+</html>

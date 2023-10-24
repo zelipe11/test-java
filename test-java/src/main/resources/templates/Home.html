@@ -1,0 +1,27 @@
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<div class="container">
+		<a href="/Empresa/CriarEmpresa"><button>Cadastrar Empresa</button></a><br><br>
+		<div class="card" th:each="empresa : ${empresas}">
+			<div class="card-header">Nome da Empresa: <span th:text="${empresa.nomeEmpresa}"></span></div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 col-sm-8 mb-3">
+						<div class="row ">
+							<div class="col-md-5">Saldo: <span th:text="${empresa.saldo}"></span></div>
+							<div class="col-md-6">CNPJ: <span th:text="${empresa.cnpj}"></span><br><br></div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

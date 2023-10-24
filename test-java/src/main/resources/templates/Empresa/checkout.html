@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Checkout</title>
+</head>
+
+<body>
+	<form action="/Empresa/nova" method="POST">
+		<h1>Resumo do Cadastro da Empresa</h1>
+		<p><strong>Nome da Empresa:</strong> <span id="nomeEmpresa"></span></p>
+		<input type="hidden" name="nomeEmpresa" id="nomeEmpresaInput">
+
+		<p><strong>CNPJ:</strong> <span id="cnpj"></span></p>
+		<input type="hidden" name="cnpj" id="cnpjInput">
+
+		<p><strong>Saldo:</strong> R$ <span id="saldo"></span></p>
+		<input type="hidden" name="saldo" id="saldoInput">
+
+		<p><strong>Valor a ser pago:</strong> R$ <span id="valorPago"></span></p>
+		<input type="hidden" name="valorPago" id="valorPagoInput">
+
+		<a href="CriarEmpresa"><button onclick="voltarParaCadastro()">Voltar para o Cadastro</button></a>
+		<button type="submit">Cadastrar</button>
+
+		<script>
+			const nomeEmpresa = localStorage.getItem('nomeEmpresa');
+			const cnpj = localStorage.getItem('cnpj');
+			const saldo = parseFloat(localStorage.getItem('saldo'));
+			const taxa = saldo * 0.1;
+			const valorPago = saldo + taxa;
+
+			document.getElementById('nomeEmpresa').textContent = nomeEmpresa;
+			document.getElementById('cnpj').textContent = cnpj;
+			document.getElementById('saldo').textContent = saldo.toFixed(2);
+			document.getElementById('valorPago').textContent = valorPago.toFixed(2);
+
+			document.getElementById('nomeEmpresaInput').value = nomeEmpresa;
+			document.getElementById('cnpjInput').value = cnpj;
+			document.getElementById('saldoInput').value = saldo.toFixed(2);
+			document.getElementById('valorPagoInput').value = valorPago.toFixed(2);
+		</script>
+	</form>
+</body>
+
+</html>

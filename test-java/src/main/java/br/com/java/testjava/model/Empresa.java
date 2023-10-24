@@ -2,16 +2,33 @@ package br.com.java.testjava.model;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Empresa {
-	private String nome;
+	
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private String nomeEmpresa;
 	private String cnpj;
 	private BigDecimal saldo;
+	private BigDecimal valorPago;
 	
-	public String getNome() {
-		return nome;
+	public BigDecimal getValorPago() {
+		return valorPago;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setValorPago(BigDecimal valorPago) {
+		this.valorPago = valorPago;
+	}
+	public String getNomeEmpresa() {
+		return nomeEmpresa;
+	}
+	public void setNomeEmpresa(String nomeEmpresa) {
+		this.nomeEmpresa = nomeEmpresa;
 	}
 	public String getCnpj() {
 		return cnpj;
