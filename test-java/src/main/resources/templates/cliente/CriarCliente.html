@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cadastro de Empresa</title>
+</head>
+
+<body>
+    <h1>Cadastro de Empresa</h1>
+    <form id="clienteForm" action="/Cliente/novo" method="POST">
+        Nome: <input type="text" name="nomeCliente"><br><br>
+        CPF: <input type="text" name="cpf"><br><br>
+        Saldo: <input type="text" name="saldo" id="saldo"><br><br>
+        Email: <input type="text" name="email"><br><br>
+        Senha: <input type="text" name="senha"><br><br>
+        <button type="submit" onclick="aplicarTaxa()">Cadastrar Empresa</button>
+    </form>
+
+    <script>
+        function aplicarTaxa() {
+            // Obtém o valor do saldo a partir do campo de entrada
+            var saldoInput = document.getElementById("saldo");
+            var saldo = parseFloat(saldoInput.value);
+
+            // Calcula o novo saldo com a taxa de 10%
+            var novoSaldo = saldo + (saldo * 0.1);
+
+            // Define o novo saldo de volta no campo de entrada
+            saldoInput.value = novoSaldo;
+        }
+    </script>
+</body>
+
+</html>
