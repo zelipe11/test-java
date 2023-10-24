@@ -13,10 +13,8 @@ public class NovaEmpresaDTO {
 	@NotBlank
 	private String cnpj;
 	
-	@NotBlank
 	private BigDecimal saldo;
 	
-	private BigDecimal valorPago;
 	
 	public String getNomeEmpresa() {
 		return nomeEmpresa;
@@ -36,18 +34,12 @@ public class NovaEmpresaDTO {
 	public void setSaldo(BigDecimal saldo) {
 		this.saldo = saldo;
 	}
-	public BigDecimal getValorPago() {
-		return valorPago;
-	}
-	public void setValorPago(BigDecimal valorPago) {
-		this.valorPago = valorPago;
-	}
+
 	public Empresa toEmpresa() {
 		Empresa empresa = new Empresa();
 		empresa.setNomeEmpresa(nomeEmpresa);
 		empresa.setCnpj(cnpj);
 		empresa.setSaldo(saldo);
-		empresa.setValorPago(valorPago);
 		
 		return empresa;
 	}

@@ -24,11 +24,6 @@ public class EmpresaController {
 		return "Empresa/CriarEmpresa";
 	}
 
-	@GetMapping("checkout")
-	public String Checkout() {
-		return "Empresa/checkout";
-	}
-
 	@PostMapping("nova")
 	public String novaEmpresa(@Valid NovaEmpresaDTO novaEmpresaDTO, BindingResult result) {
 		if(result.hasErrors()) {

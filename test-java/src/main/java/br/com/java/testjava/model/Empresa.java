@@ -16,14 +16,7 @@ public class Empresa {
 	private String nomeEmpresa;
 	private String cnpj;
 	private BigDecimal saldo;
-	private BigDecimal valorPago;
 	
-	public BigDecimal getValorPago() {
-		return valorPago;
-	}
-	public void setValorPago(BigDecimal valorPago) {
-		this.valorPago = valorPago;
-	}
 	public String getNomeEmpresa() {
 		return nomeEmpresa;
 	}

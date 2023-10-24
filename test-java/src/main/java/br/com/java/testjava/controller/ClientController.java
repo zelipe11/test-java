@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 public class ClientController {
 	
-	@GetMapping("/client")
+	@GetMapping("client")
 	public String client(HttpServletRequest request) {
 		request.getAttribute("name");
 		return "client";
